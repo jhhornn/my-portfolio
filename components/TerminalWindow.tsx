@@ -12,7 +12,7 @@ interface TerminalWindowProps {
 }
 
 export const TerminalWindow: React.FC<TerminalWindowProps> = ({
-    title = "user@portfolio:~",
+    title = "jhhornn@portfolio:~",
     children,
     className,
     command,
@@ -47,7 +47,7 @@ export const TerminalWindow: React.FC<TerminalWindowProps> = ({
 
                 {command && (
                     <div className="mb-4 text-terminal-green">
-                        <span className="text-terminal-blue">user@portfolio:~$</span> {command}
+                        <span className="text-terminal-blue">jhhornn@portfolio:~$</span> {command}
                     </div>
                 )}
 

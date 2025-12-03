@@ -10,14 +10,13 @@ const skills = [
     { name: "Backend Development", level: 95 },
     { name: "API Design", level: 90 },
     { name: "Database Management", level: 85 },
-    { name: "Cloud Architecture", level: 80 },
     { name: "DevOps", level: 75 },
 ];
 
 export default function About() {
     return (
         <div className="max-w-4xl mx-auto space-y-8">
-            <TerminalWindow command="cat about.txt" title="user@portfolio:~/about">
+            <TerminalWindow command="cat about.txt" title="jhhornn@portfolio:~/about">
                 <div className="space-y-6 text-terminal-light-gray">
                     {/* Profile Image */}
                     <motion.div
@@ -51,21 +50,21 @@ export default function About() {
                     <div className="space-y-4">
                         <p>
                             <TypewriterText
-                                text="Hello! I'm Oluwaseun, a passionate Backend Engineer with over 5 years of experience in building high-performance, scalable systems."
+                                text="Hello! I'm Oluwaseun, a passionate Backend Engineer with over 3 years of experience in building high-performance, scalable systems."
                                 delay={500}
                                 speed={20}
                             />
                         </p>
                         <p>
                             <TypewriterText
-                                text="I specialize in designing robust APIs, optimizing database queries, and architecting cloud-native solutions. My journey began with a curiosity for how things work under the hood, which evolved into a career dedicated to solving complex engineering problems."
+                                text="I specialize in designing robust APIs, optimizing database queries, and deployment of solutions. My journey began with a curiosity for how things work under the hood, which evolved into a career dedicated to solving complex engineering problems."
                                 delay={2500}
                                 speed={10}
                             />
                         </p>
                         <p>
                             <TypewriterText
-                                text="Currently, I'm focused on distributed systems and serverless architectures, always looking for ways to improve efficiency and reliability."
+                                text="Currently, I'm focused on monolithic systems and distributed architectures, always looking for ways to improve efficiency and reliability."
                                 delay={5000}
                                 speed={10}
                             />

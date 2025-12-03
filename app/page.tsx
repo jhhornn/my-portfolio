@@ -96,7 +96,7 @@ export default function Home() {
           {/* Text Content */}
           <div className="space-y-6 flex-1">
             <div>
-              <div className="text-terminal-blue mb-2">user@portfolio:~$ whoami</div>
+              <div className="text-terminal-blue mb-2">jhhornn@portfolio:~$ whoami</div>
               <h1 className="text-4xl md:text-6xl font-bold text-terminal-white mb-4">
                 <TypewriterText text="Oluwaseun" delay={500} />
               </h1>

@@ -70,7 +70,7 @@ export default function Contact() {
     return (
         <div className="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2">
-                <TerminalWindow command="send-message" title="user@portfolio:~/contact">
+                <TerminalWindow command="send-message" title="jhhornn@portfolio:~/contact">
                     <div className="space-y-2 font-mono text-terminal-light-gray h-[400px] overflow-y-auto" onClick={() => {
                         if (currentField === "message") textareaRef.current?.focus();
                         else inputRef.current?.focus();

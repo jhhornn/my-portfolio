@@ -63,7 +63,7 @@ export default function Projects() {
 
     return (
         <div className="max-w-6xl mx-auto">
-            <TerminalWindow command="ls -la projects/" title="user@portfolio:~/projects">
+            <TerminalWindow command="ls -la projects/" title="jhhornn@portfolio:~/projects">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {projects.map((project, index) => (
                         <motion.div

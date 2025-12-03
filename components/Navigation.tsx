@@ -22,7 +22,7 @@ export const Navigation = () => {
         <nav className="fixed top-0 left-0 right-0 z-50 bg-terminal-black/90 backdrop-blur-sm border-b border-terminal-dark-gray">
             <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
                 <div className="text-terminal-green font-bold text-lg hidden md:block">
-                    user@portfolio:~$
+                    jhhornn@portfolio:~$
                 </div>
 
                 <div className="flex items-center gap-1 md:gap-6 overflow-x-auto no-scrollbar w-full md:w-auto">

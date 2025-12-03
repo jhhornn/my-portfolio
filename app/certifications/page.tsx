@@ -41,7 +41,7 @@ const certifications = [
 export default function Certifications() {
     return (
         <div className="max-w-4xl mx-auto">
-            <TerminalWindow command="certificates --list --verified" title="user@portfolio:~/certs">
+            <TerminalWindow command="certificates --list --verified" title="jhhornn@portfolio:~/certs">
                 <div className="space-y-6">
                     {certifications.map((cert, index) => (
                         <motion.div

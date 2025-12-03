@@ -28,7 +28,7 @@ export default function RootLayout({
 
         <footer className="border-t border-terminal-dark-gray py-6 mt-auto bg-terminal-black/90 backdrop-blur-sm relative z-10">
           <div className="max-w-6xl mx-auto px-4 text-center text-terminal-gray text-sm">
-            <p>user@portfolio:~$ status</p>
+            <p>jhhornn@portfolio:~$ status</p>
             <p className="mt-1">Status: Online | Last updated: 2025-12-03 | Build: v2.1.0</p>
             <p className="mt-2 text-xs opacity-50">© 2025 Backend Engineer. Built with Next.js</p>
           </div>

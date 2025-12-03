@@ -159,7 +159,7 @@ export default function Game() {
 
     return (
         <div className="max-w-2xl mx-auto">
-            <TerminalWindow command="./snake_game.sh" title="user@portfolio:~/game">
+            <TerminalWindow command="./snake_game.sh" title="jhhornn@portfolio:~/game">
                 <div className="flex flex-col items-center gap-6">
                     <div className="flex justify-between w-full px-4 text-terminal-light-gray font-mono">
                         <div>SCORE: <span className="text-terminal-green">{score}</span></div>
