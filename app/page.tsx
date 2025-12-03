@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { TerminalWindow } from "@/components/TerminalWindow";
 import { TypewriterText } from "@/components/TypewriterText";
 import { motion, AnimatePresence } from "framer-motion";
@@ -63,44 +64,75 @@ export default function Home() {
   return (
     <div className="space-y-12">
       <TerminalWindow className="min-h-[60vh] flex flex-col justify-center">
-        <div className="space-y-6">
-          <div>
-            <div className="text-terminal-blue mb-2">user@portfolio:~$ whoami</div>
-            <h1 className="text-4xl md:text-6xl font-bold text-terminal-white mb-4">
-              <TypewriterText text="Oluwaseun" delay={500} />
-            </h1>
-            <div className="text-xl md:text-2xl text-terminal-light-gray">
-              <TypewriterText
-                text="Backend Engineer | API Architect | Cloud Enthusiast"
-                delay={1500}
-                speed={30}
-              />
-            </div>
-          </div>
-
+        <div className="flex flex-col md:flex-row gap-8 items-center">
+          {/* Profile Image */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 3.5, duration: 1 }}
-            className="pt-8 space-y-4"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.5, duration: 0.5 }}
+            className="relative group"
           >
-            <p className="text-terminal-green max-w-2xl leading-relaxed">
-              Building robust, scalable, and efficient backend systems.
-              Specialized in distributed architectures, cloud infrastructure, and high-performance APIs.
-            </p>
-
-            <div className="flex flex-wrap gap-4 pt-4">
-              <Link href="/projects" className="group relative inline-flex items-center gap-2 px-6 py-3 bg-terminal-dark-gray border border-terminal-green text-terminal-green hover:bg-terminal-green hover:text-terminal-black transition-all duration-300">
-                <Terminal size={18} />
-                <span>./view_projects.sh</span>
-                <ArrowRight size={16} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all" />
-              </Link>
-
-              <Link href="/contact" className="group inline-flex items-center gap-2 px-6 py-3 border border-terminal-dark-gray text-terminal-light-gray hover:border-terminal-white hover:text-terminal-white transition-all duration-300">
-                <span>contact --init</span>
-              </Link>
+            <div className="w-48 h-48 relative">
+              {/* Terminal-style border */}
+              <div className="absolute inset-0 border-2 border-terminal-green rounded-lg group-hover:border-terminal-bright-green transition-colors">
+                <div className="absolute top-0 left-0 px-2 py-1 bg-terminal-black text-terminal-green text-xs -translate-y-1/2">
+                  [profile.img]
+                </div>
+              </div>
+              {/* Image */}
+              <Image
+                src="/profile.png"
+                alt="Profile"
+                width={192}
+                height={192}
+                className="w-full h-full object-cover rounded-lg p-1"
+                priority
+              />
+              {/* Scanline effect */}
+              <div className="absolute inset-0 pointer-events-none scanline opacity-20 rounded-lg" />
             </div>
           </motion.div>
+
+          {/* Text Content */}
+          <div className="space-y-6 flex-1">
+            <div>
+              <div className="text-terminal-blue mb-2">user@portfolio:~$ whoami</div>
+              <h1 className="text-4xl md:text-6xl font-bold text-terminal-white mb-4">
+                <TypewriterText text="Oluwaseun" delay={500} />
+              </h1>
+              <div className="text-xl md:text-2xl text-terminal-light-gray">
+                <TypewriterText
+                  text="Backend Engineer | API Architect | Cloud Enthusiast"
+                  delay={1500}
+                  speed={30}
+                />
+              </div>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 3.5, duration: 1 }}
+              className="pt-8 space-y-4"
+            >
+              <p className="text-terminal-green max-w-2xl leading-relaxed">
+                Building robust, scalable, and efficient backend systems.
+                Specialized in distributed architectures, cloud infrastructure, and high-performance APIs.
+              </p>
+
+              <div className="flex flex-wrap gap-4 pt-4">
+                <Link href="/projects" className="group relative inline-flex items-center gap-2 px-6 py-3 bg-terminal-dark-gray border border-terminal-green text-terminal-green hover:bg-terminal-green hover:text-terminal-black transition-all duration-300">
+                  <Terminal size={18} />
+                  <span>./view_projects.sh</span>
+                  <ArrowRight size={16} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+                </Link>
+
+                <Link href="/contact" className="group inline-flex items-center gap-2 px-6 py-3 border border-terminal-dark-gray text-terminal-light-gray hover:border-terminal-white hover:text-terminal-white transition-all duration-300">
+                  <span>contact --init</span>
+                </Link>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </TerminalWindow>
 

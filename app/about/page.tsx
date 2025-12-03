@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { TerminalWindow } from "@/components/TerminalWindow";
 import { TypewriterText } from "@/components/TypewriterText";
 import { motion } from "framer-motion";
@@ -18,6 +19,35 @@ export default function About() {
         <div className="max-w-4xl mx-auto space-y-8">
             <TerminalWindow command="cat about.txt" title="user@portfolio:~/about">
                 <div className="space-y-6 text-terminal-light-gray">
+                    {/* Profile Image */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5 }}
+                        className="flex justify-center mb-8"
+                    >
+                        <div className="relative group">
+                            <div className="w-40 h-40 relative">
+                                {/* Terminal-style border */}
+                                <div className="absolute inset-0 border-2 border-terminal-green rounded-full group-hover:border-terminal-bright-green transition-colors">
+                                    <div className="absolute top-0 right-0 px-2 py-1 bg-terminal-black text-terminal-green text-xs translate-x-1/2 -translate-y-1/2 whitespace-nowrap">
+                                        [profile.img]
+                                    </div>
+                                </div>
+                                {/* Image */}
+                                <Image
+                                    src="/profile.png"
+                                    alt="Profile"
+                                    width={160}
+                                    height={160}
+                                    className="w-full h-full object-cover rounded-full p-1"
+                                />
+                                {/* Scanline effect */}
+                                <div className="absolute inset-0 pointer-events-none scanline opacity-20 rounded-full" />
+                            </div>
+                        </div>
+                    </motion.div>
+
                     <div className="space-y-4">
                         <p>
                             <TypewriterText
