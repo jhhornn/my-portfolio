@@ -22,6 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${jetbrainsMono.variable} font-mono bg-terminal-black text-terminal-white antialiased min-h-screen flex flex-col`}
+        suppressHydrationWarning
       >
         <ClientWrapper>{children}</ClientWrapper>
 
