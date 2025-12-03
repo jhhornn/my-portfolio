@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #00ff41;
+  
+  /* Terminal Colors */
+  --terminal-black: #0a0a0a;
+  --terminal-dark-gray: #1a1a1a;
+  --terminal-gray: #333333;
+  --terminal-light-gray: #cccccc;
+  --terminal-white: #ffffff;
+  --terminal-green: #00ff41;
+  --terminal-bright-green: #00ff00;
+  --terminal-amber: #ff9800;
+  --terminal-orange: #ffb86c;
+  --terminal-red: #ff5555;
+  --terminal-blue: #8be9fd;
+  --terminal-purple: #bd93f9;
+  --terminal-cyan: #50fa7b;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  --color-terminal-black: var(--terminal-black);
+  --color-terminal-dark-gray: var(--terminal-dark-gray);
+  --color-terminal-gray: var(--terminal-gray);
+  --color-terminal-light-gray: var(--terminal-light-gray);
+  --color-terminal-white: var(--terminal-white);
+  --color-terminal-green: var(--terminal-green);
+  --color-terminal-bright-green: var(--terminal-bright-green);
+  --color-terminal-amber: var(--terminal-amber);
+  --color-terminal-orange: var(--terminal-orange);
+  --color-terminal-red: var(--terminal-red);
+  --color-terminal-blue: var(--terminal-blue);
+  --color-terminal-purple: var(--terminal-purple);
+  --color-terminal-cyan: var(--terminal-cyan);
+  
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-mono);
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--terminal-dark-gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--terminal-green);
+  border: 2px solid var(--terminal-dark-gray);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--terminal-bright-green);
+}
+
+/* Utilities */
+.text-glow {
+  text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+}
+
+.border-glow {
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+}
+
+.scanline {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0) 50%,
+    rgba(0, 0, 0, 0.2) 50%,
+    rgba(0, 0, 0, 0.2)
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+}
