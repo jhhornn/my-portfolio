@@ -102,7 +102,7 @@ export default function Home() {
               </h1>
               <div className="text-xl md:text-2xl text-terminal-light-gray">
                 <TypewriterText
-                  text="Backend Engineer | API Architect | Cloud Enthusiast"
+                  text="Backend Engineer | API Architect | DevOps Practitioner"
                   delay={1500}
                   speed={30}
                 />
@@ -116,8 +116,8 @@ export default function Home() {
               className="pt-8 space-y-4"
             >
               <p className="text-terminal-green max-w-2xl leading-relaxed">
-                Building robust, scalable, and efficient backend systems.
-                Specialized in distributed architectures, cloud infrastructure, and high-performance APIs.
+                Building robust, scalable backend systems with modern DevOps practices.
+                Specialized in multi-tenant architectures, real-time applications, API design, and AI-assisted development.
               </p>
 
               <div className="flex flex-wrap gap-4 pt-4">

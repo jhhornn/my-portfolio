@@ -8,9 +8,12 @@ import { motion } from "framer-motion";
 
 const skills = [
     { name: "Backend Development", level: 95 },
-    { name: "API Design", level: 90 },
-    { name: "Database Management", level: 85 },
-    { name: "DevOps", level: 75 },
+    { name: "API Design & Architecture", level: 92 },
+    { name: "Database Management", level: 88 },
+    { name: "Multi-tenant Architecture", level: 87 },
+    { name: "Real-time Systems", level: 85 },
+    { name: "AI-Assisted Development", level: 82 },
+    { name: "DevOps & CI/CD", level: 80 },
 ];
 
 export default function About() {
@@ -50,21 +53,21 @@ export default function About() {
                     <div className="space-y-4">
                         <p>
                             <TypewriterText
-                                text="Hello! I'm Oluwaseun, a passionate Backend Engineer with over 3 years of experience in building high-performance, scalable systems."
+                                text="Hello! I'm Oluwaseun, a passionate Backend Engineer with over 3 years of experience building high-performance, scalable systems and multi-tenant architectures."
                                 delay={500}
                                 speed={20}
                             />
                         </p>
                         <p>
                             <TypewriterText
-                                text="I specialize in designing robust APIs, optimizing database queries, and deployment of solutions. My journey began with a curiosity for how things work under the hood, which evolved into a career dedicated to solving complex engineering problems."
+                                text="I specialize in designing robust APIs, managing complex databases, and implementing DevOps best practices for seamless deployments. My expertise spans from real-time communication systems to secure wallet applications and enterprise-level ERP platforms. I leverage AI tools to enhance productivity and code quality throughout the development lifecycle."
                                 delay={2500}
                                 speed={10}
                             />
                         </p>
                         <p>
                             <TypewriterText
-                                text="Currently, I'm focused on monolithic systems and distributed architectures, always looking for ways to improve efficiency and reliability."
+                                text="Currently, I'm focused on microservices architectures, containerization with Docker, and continuously improving my DevOps workflows while exploring cutting-edge AI-assisted development tools."
                                 delay={5000}
                                 speed={10}
                             />
