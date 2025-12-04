@@ -9,8 +9,13 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Backend Developer Portfolio",
-  description: "A terminal-themed portfolio for a backend developer",
+  title: "Oluwaseun | Backend Engineer",
+  description: "Backend Engineer specializing in multi-tenant architectures, real-time applications, API design, and DevOps practices. Built with Next.js.",
+  icons: {
+    icon: '/terminal-icon.png',
+    shortcut: '/terminal-icon.png',
+    apple: '/terminal-icon.png',
+  },
 };
 
 export default function RootLayout({
