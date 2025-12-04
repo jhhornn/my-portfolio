@@ -100,15 +100,23 @@ export default function Game() {
         const handleKeyDown = (e: KeyboardEvent) => {
             switch (e.key) {
                 case "ArrowUp":
+                case "w":
+                case "W":
                     if (direction.y === 0) setDirection({ x: 0, y: -1 });
                     break;
                 case "ArrowDown":
+                case "s":
+                case "S":
                     if (direction.y === 0) setDirection({ x: 0, y: 1 });
                     break;
                 case "ArrowLeft":
+                case "a":
+                case "A":
                     if (direction.x === 0) setDirection({ x: -1, y: 0 });
                     break;
                 case "ArrowRight":
+                case "d":
+                case "D":
                     if (direction.x === 0) setDirection({ x: 1, y: 0 });
                     break;
             }
@@ -116,6 +124,59 @@ export default function Game() {
 
         window.addEventListener("keydown", handleKeyDown);
         return () => window.removeEventListener("keydown", handleKeyDown);
+    }, [direction]);
+
+    // Touch controls for mobile
+    useEffect(() => {
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+
+        let touchStartX = 0;
+        let touchStartY = 0;
+
+        const handleTouchStart = (e: TouchEvent) => {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+        };
+
+        const handleTouchEnd = (e: TouchEvent) => {
+            const touchEndX = e.changedTouches[0].clientX;
+            const touchEndY = e.changedTouches[0].clientY;
+
+            const deltaX = touchEndX - touchStartX;
+            const deltaY = touchEndY - touchStartY;
+
+            // Minimum swipe distance
+            const minSwipeDistance = 30;
+
+            if (Math.abs(deltaX) > Math.abs(deltaY)) {
+                // Horizontal swipe
+                if (Math.abs(deltaX) > minSwipeDistance) {
+                    if (deltaX > 0 && direction.x === 0) {
+                        setDirection({ x: 1, y: 0 }); // Right
+                    } else if (deltaX < 0 && direction.x === 0) {
+                        setDirection({ x: -1, y: 0 }); // Left
+                    }
+                }
+            } else {
+                // Vertical swipe
+                if (Math.abs(deltaY) > minSwipeDistance) {
+                    if (deltaY > 0 && direction.y === 0) {
+                        setDirection({ x: 0, y: 1 }); // Down
+                    } else if (deltaY < 0 && direction.y === 0) {
+                        setDirection({ x: 0, y: -1 }); // Up
+                    }
+                }
+            }
+        };
+
+        canvas.addEventListener("touchstart", handleTouchStart);
+        canvas.addEventListener("touchend", handleTouchEnd);
+
+        return () => {
+            canvas.removeEventListener("touchstart", handleTouchStart);
+            canvas.removeEventListener("touchend", handleTouchEnd);
+        };
     }, [direction]);
 
     // Draw game
@@ -198,8 +259,43 @@ export default function Game() {
                         )}
                     </div>
 
+                    {/* Touch Controls for Mobile */}
+                    <div className="grid grid-cols-3 gap-2 md:hidden w-48">
+                        <div></div>
+                        <button
+                            onClick={() => direction.y === 0 && setDirection({ x: 0, y: -1 })}
+                            className="p-3 bg-terminal-dark-gray border border-terminal-green text-terminal-green rounded hover:bg-terminal-green hover:text-terminal-black transition-colors"
+                            aria-label="Move Up"
+                        >
+                            ↑
+                        </button>
+                        <div></div>
+                        <button
+                            onClick={() => direction.x === 0 && setDirection({ x: -1, y: 0 })}
+                            className="p-3 bg-terminal-dark-gray border border-terminal-green text-terminal-green rounded hover:bg-terminal-green hover:text-terminal-black transition-colors"
+                            aria-label="Move Left"
+                        >
+                            ←
+                        </button>
+                        <button
+                            onClick={() => direction.y === 0 && setDirection({ x: 0, y: 1 })}
+                            className="p-3 bg-terminal-dark-gray border border-terminal-green text-terminal-green rounded hover:bg-terminal-green hover:text-terminal-black transition-colors"
+                            aria-label="Move Down"
+                        >
+                            ↓
+                        </button>
+                        <button
+                            onClick={() => direction.x === 0 && setDirection({ x: 1, y: 0 })}
+                            className="p-3 bg-terminal-dark-gray border border-terminal-green text-terminal-green rounded hover:bg-terminal-green hover:text-terminal-black transition-colors"
+                            aria-label="Move Right"
+                        >
+                            →
+                        </button>
+                    </div>
+
                     <div className="text-sm text-terminal-gray text-center">
-                        <p>Use Arrow Keys to move</p>
+                        <p className="hidden md:block">Use Arrow Keys or WASD to move</p>
+                        <p className="md:hidden">Swipe or use buttons to move</p>
                         <p>Eat the red blocks to grow</p>
                     </div>
                 </div>

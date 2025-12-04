@@ -154,7 +154,8 @@ export default function Contact() {
                         )}
 
                         <div className="mt-4 text-xs text-terminal-gray">
-                            [CTRL+Enter to send | ESC to cancel]
+                            <p className="hidden md:block">[CTRL+Enter to send | ESC to cancel]</p>
+                            <p className="md:hidden">[Press Enter to continue]</p>
                         </div>
                     </div>
                 </TerminalWindow>
