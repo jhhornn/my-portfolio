@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 const navItems = [
     { name: "home", path: "/", command: "./home.sh" },
     { name: "about", path: "/about", command: "./about.sh" },
+    { name: "experience", path: "/experience", command: "./experience.sh" },
     { name: "projects", path: "/projects", command: "./projects.sh" },
     { name: "certifications", path: "/certifications", command: "./certs.sh" },
     { name: "contact", path: "/contact", command: "./contact.sh" },
