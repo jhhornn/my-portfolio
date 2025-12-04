@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { TerminalWindow } from "@/components/TerminalWindow";
 import { motion } from "framer-motion";
-import { Send, Mail, Github, Linkedin, Twitter } from "lucide-react";
+import { Send, Mail, Github, Linkedin, Twitter as X } from "lucide-react";
 
 export default function Contact() {
     const [formState, setFormState] = useState({
@@ -130,21 +130,21 @@ export default function Contact() {
                 <div className="p-6 border border-terminal-dark-gray bg-terminal-black/50 rounded-lg">
                     <h3 className="text-terminal-white font-bold mb-4">Connect</h3>
                     <div className="space-y-4">
-                        <a href="mailto:user@example.com" className="flex items-center gap-3 text-terminal-light-gray hover:text-terminal-green transition-colors">
+                        <a href="mailto:awosiseo@gmail.com" className="flex items-center gap-3 text-terminal-light-gray hover:text-terminal-green transition-colors">
                             <Mail size={18} />
-                            <span>email user@example.com</span>
+                            <span>awosiseo@gmail.com</span>
                         </a>
-                        <a href="#" className="flex items-center gap-3 text-terminal-light-gray hover:text-terminal-green transition-colors">
+                        <a href="https://github.com/jhhornn" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-terminal-light-gray hover:text-terminal-green transition-colors">
                             <Github size={18} />
-                            <span>github username</span>
+                            <span>@jhhornn</span>
                         </a>
-                        <a href="#" className="flex items-center gap-3 text-terminal-light-gray hover:text-terminal-green transition-colors">
+                        <a href="https://www.linkedin.com/in/jhhornn/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-terminal-light-gray hover:text-terminal-green transition-colors">
                             <Linkedin size={18} />
-                            <span>linkedin username</span>
+                            <span>jhhornn</span>
                         </a>
-                        <a href="#" className="flex items-center gap-3 text-terminal-light-gray hover:text-terminal-green transition-colors">
-                            <Twitter size={18} />
-                            <span>twitter handle</span>
+                        <a href="https://x.com/jhhornn" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-terminal-light-gray hover:text-terminal-green transition-colors">
+                            <X size={18} />
+                            <span>@jhhornn</span>
                         </a>
                     </div>
                 </div>
