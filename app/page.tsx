@@ -81,7 +81,7 @@ export default function Home() {
               </div>
               {/* Image */}
               <Image
-                src="/profile.png"
+                src="/pass.jpg"
                 alt="Profile"
                 width={192}
                 height={192}
@@ -102,7 +102,7 @@ export default function Home() {
               </h1>
               <div className="text-xl md:text-2xl text-terminal-light-gray">
                 <TypewriterText
-                  text="Backend Engineer | API Architect | DevOps Practitioner"
+                  text="Backend Engineer"
                   delay={1500}
                   speed={30}
                 />

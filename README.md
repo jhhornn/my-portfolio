@@ -10,7 +10,10 @@ A professional terminal-themed portfolio website built with Next.js 14, featurin
 - **Matrix Rain**: Dynamic background effect with falling characters
 - **Fully Responsive**: Mobile-friendly design that adapts to all screen sizes
 - **Snake Game**: Playable terminal-based mini-game
-- **Contact Form**: Interactive terminal-style contact interface
+- **Real Contact Form**: Functional email delivery via Web3Forms
+- **Dynamic Footer**: Rotating tech quotes and live uptime counter
+- **Real Projects**: Showcases actual projects with live demos and GitHub links
+- **Enhanced Skills**: Comprehensive skills display including DevOps, AI tools, and multi-tenant architecture
 
 ## 📦 Tech Stack
 
@@ -20,6 +23,8 @@ A professional terminal-themed portfolio website built with Next.js 14, featurin
 - **Icons**: Lucide React
 - **Font**: JetBrains Mono (monospace)
 - **Language**: TypeScript
+- **Email Service**: Web3Forms API
+- **Form Handling**: React hooks with async/await
 
 ## 🛠️ Installation
 
@@ -48,12 +53,20 @@ A professional terminal-themed portfolio website built with Next.js 14, featurin
    npm install framer-motion lucide-react clsx tailwind-merge
    ```
 
-3. **Run the development server:**
+3. **Set up environment variables** (for contact form):
+   ```bash
+   # Create .env.local file in project root
+   echo "NEXT_PUBLIC_WEB3FORMS_KEY=your_key_here" > .env.local
+   ```
+   
+   See [SETUP_EMAIL.md](./SETUP_EMAIL.md) for detailed email setup instructions.
+
+4. **Run the development server:**
    ```bash
    npm run dev
    ```
 
-4. **Open your browser:**
+5. **Open your browser:**
    Navigate to [http://localhost:3000](http://localhost:3000)
 
 ## 📁 Project Structure
@@ -91,23 +104,29 @@ my-portfolio/
 ### Update Personal Information
 
 1. **Hero Section** (`app/page.tsx`):
-   - Change name in the TypewriterText component
-   - Update tagline and description
+   - Change name in the TypewriterText component (line 101)
+   - Update tagline (currently: "Backend Engineer")
+   - Modify description to reflect your expertise
 
 2. **About Page** (`app/about/page.tsx`):
-   - Modify bio text
-   - Update skills and percentages
+   - Update bio paragraphs (lines 56-72)
+   - Modify skills array (lines 9-17) with your expertise areas
+   - Adjust skill levels (0-100%)
 
 3. **Projects** (`app/projects/page.tsx`):
-   - Add/remove projects in the `projects` array
-   - Update links, tech stack, and descriptions
+   - Replace projects array (lines 9-125) with your projects
+   - Include: name, description, tech stack, features, links, status
+   - Supported statuses: "COMPLETED", "IN PROGRESS", "MAINTAINED"
 
-4. **Certifications** (`app/certifications/page.tsx`):
-   - Add/edit certifications in the `certifications` array
+4. **Contact** (`app/contact/page.tsx`):
+   - Update email (line 133): awosiseo@gmail.com
+   - Update GitHub link (line 137): @jhhornn
+   - Update LinkedIn (line 141): jhhornn
+   - Update X/Twitter (line 145): @jhhornn
 
-5. **Contact** (`app/contact/page.tsx`):
-   - Update social media links
-   - Configure email address
+5. **Footer** (`app/layout.tsx`):
+   - Add/modify tech quotes in the rotation (lines 32-41)
+   - Update launch date for uptime counter (line 47)
 
 ### Color Scheme
 
@@ -139,13 +158,34 @@ The site uses terminal-style commands for navigation:
 - `$ contact` - Contact form
 - `$ game` - Snake game
 
+## 🔐 Environment Variables
+
+For the contact form to work, you need to set up Web3Forms:
+
+```bash
+# .env.local
+NEXT_PUBLIC_WEB3FORMS_KEY=your_web3forms_access_key
+```
+
+**Setup Steps:**
+1. Sign up at [Web3Forms](https://web3forms.com) (free)
+2. Verify your email
+3. Copy your Access Key
+4. Add to `.env.local` file in project root
+5. Restart dev server
+
+See [SETUP_EMAIL.md](./SETUP_EMAIL.md) for detailed instructions.
+
 ## 🚢 Deployment
 
 ### Vercel (Recommended)
 
 1. Push code to GitHub
 2. Import project in Vercel
-3. Deploy automatically
+3. Add environment variable in Vercel dashboard:
+   - Key: `NEXT_PUBLIC_WEB3FORMS_KEY`
+   - Value: Your Web3Forms access key
+4. Deploy automatically
 
 ```bash
 # Or use Vercel CLI
@@ -156,10 +196,12 @@ vercel
 ### Other Platforms
 
 The app can be deployed to any platform that supports Next.js:
-- Netlify
-- AWS Amplify
-- Railway
-- Render
+- **Netlify**: Add env vars in Site settings → Environment variables
+- **AWS Amplify**: Add in Environment variables section
+- **Railway**: Add in Variables tab
+- **Render**: Add in Environment section
+
+**Important:** Always add the `NEXT_PUBLIC_WEB3FORMS_KEY` environment variable for the contact form to work in production.
 
 ## 📄 License
 

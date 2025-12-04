@@ -51,20 +51,54 @@ export default function Contact() {
 
     const handleSubmit = async () => {
         setIsSubmitting(true);
-        // Simulate API call
-        await new Promise((resolve) => setTimeout(resolve, 1500));
-        setOutput((prev) => [
-            ...prev,
-            "Sending message...",
-            "Connecting to SMTP server... [OK]",
-            "Message sent successfully [OK]"
-        ]);
-        setIsSubmitting(false);
-        setFormState({ name: "", email: "", message: "" });
-        setTimeout(() => {
-            setCurrentField("name");
-            setOutput([]);
-        }, 3000);
+        setOutput((prev) => [...prev, "Sending message...", "Connecting to mail server..."]);
+
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify({
+                    access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
+                    name: formState.name,
+                    email: formState.email,
+                    message: formState.message,
+                    subject: `Portfolio Contact from ${formState.name}`,
+                    from_name: "Portfolio Contact Form"
+                }),
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                setOutput((prev) => [
+                    ...prev,
+                    "Message delivered successfully [OK]",
+                    "You'll hear back soon! [OK]"
+                ]);
+                setFormState({ name: "", email: "", message: "" });
+                setTimeout(() => {
+                    setCurrentField("name");
+                    setOutput([]);
+                }, 3000);
+            } else {
+                throw new Error(data.message || "Failed to send message");
+            }
+        } catch (error) {
+            setOutput((prev) => [
+                ...prev,
+                "Error: Message delivery failed [ERROR]",
+                "Please email directly: awosiseo@gmail.com"
+            ]);
+            setTimeout(() => {
+                setCurrentField("name");
+                setOutput([]);
+            }, 5000);
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (

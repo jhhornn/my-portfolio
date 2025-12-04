@@ -28,9 +28,33 @@ export default function RootLayout({
 
         <footer className="border-t border-terminal-dark-gray py-6 mt-auto bg-terminal-black/90 backdrop-blur-sm relative z-10">
           <div className="max-w-6xl mx-auto px-4 text-center text-terminal-gray text-sm">
-            <p>jhhornn@portfolio:~$ status</p>
-            <p className="mt-1">Status: Online | Last updated: 2025-12-03 | Build: v2.1.0</p>
-            <p className="mt-2 text-xs opacity-50">© 2025 Backend Engineer. Built with Next.js</p>
+            <p className="text-terminal-green italic mb-2 text-sm md:text-base">
+              "{[
+                "Code is poetry written for machines but read by humans",
+                "The best error message is the one that never shows up",
+                "Make it work, make it right, make it fast",
+                "Simplicity is the ultimate sophistication",
+                "Talk is cheap. Show me the code. - Linus Torvalds",
+                "Any fool can write code that a computer can understand. Good programmers write code that humans can understand",
+                "First, solve the problem. Then, write the code",
+                "Programs must be written for people to read, and only incidentally for machines to execute"
+              ][Math.floor(Math.random() * 8)]}"
+            </p>
+
+            <p className="text-xs flex items-center justify-center gap-2 flex-wrap">
+              <span className="text-terminal-blue">$</span>
+              <span>uptime: {Math.floor((new Date().getTime() - new Date('2024-12-01').getTime()) / (1000 * 60 * 60 * 24))} days</span>
+              <span className="hidden sm:inline">|</span>
+              <span className="flex items-center gap-1">
+                <span className="text-terminal-green">●</span> online
+              </span>
+              <span className="hidden sm:inline">|</span>
+              <span>Built with Next.js + 💚</span>
+            </p>
+
+            <p className="mt-2 text-xs opacity-60">
+              © 2025 jhhornn. Always learning, always building.
+            </p>
           </div>
         </footer>
       </body>

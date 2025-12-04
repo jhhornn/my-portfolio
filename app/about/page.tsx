@@ -38,7 +38,7 @@ export default function About() {
                                 </div>
                                 {/* Image */}
                                 <Image
-                                    src="/profile.png"
+                                    src="/pass.jpg"
                                     alt="Profile"
                                     width={160}
                                     height={160}
