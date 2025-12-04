@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { TerminalWindow } from "@/components/TerminalWindow";
 import { motion } from "framer-motion";
-import { Send, Mail, Github, Linkedin, Twitter as X } from "lucide-react";
+import { Send, Mail, Github, Linkedin, Twitter as X, BookOpen } from "lucide-react";
 
 export default function Contact() {
     const [formState, setFormState] = useState({
@@ -180,6 +180,10 @@ export default function Contact() {
                         <a href="https://x.com/jhhornn" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-terminal-light-gray hover:text-terminal-green transition-colors">
                             <X size={18} />
                             <span>@jhhornn</span>
+                        </a>
+                        <a href="https://dev.to/jhhornn" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-terminal-light-gray hover:text-terminal-green transition-colors">
+                            <BookOpen size={18} />
+                            <span>jhhornn</span>
                         </a>
                     </div>
                 </div>
