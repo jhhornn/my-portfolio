@@ -102,10 +102,10 @@ export default function Contact() {
     };
 
     return (
-        <div className="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
             <div className="lg:col-span-2">
                 <TerminalWindow command="send-message" title="jhhornn@portfolio:~/contact">
-                    <div className="space-y-2 font-mono text-terminal-light-gray h-[400px] overflow-y-auto" onClick={() => {
+                    <div className="space-y-2 font-mono text-terminal-light-gray min-h-[350px] sm:h-[400px] overflow-y-auto" onClick={() => {
                         if (currentField === "message") textareaRef.current?.focus();
                         else inputRef.current?.focus();
                     }}>
@@ -161,10 +161,10 @@ export default function Contact() {
                 </TerminalWindow>
             </div>
 
-            <div className="space-y-6">
-                <div className="p-6 border border-terminal-dark-gray bg-terminal-black/50 rounded-lg">
-                    <h3 className="text-terminal-white font-bold mb-4">Connect</h3>
-                    <div className="space-y-4">
+            <div className="space-y-6 order-first lg:order-last">
+                <div className="p-4 sm:p-6 border border-terminal-dark-gray bg-terminal-black/50 rounded-lg hover:border-terminal-green/50 transition-all duration-300">
+                    <h3 className="text-terminal-white font-bold mb-4 text-base sm:text-lg">Connect</h3>
+                    <div className="space-y-3 sm:space-y-4">
                         <a href="mailto:awosiseo@gmail.com" className="flex items-center gap-3 text-terminal-light-gray hover:text-terminal-green transition-colors">
                             <Mail size={18} />
                             <span>awosiseo@gmail.com</span>

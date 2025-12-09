@@ -64,7 +64,7 @@ export default function Home() {
   return (
     <div className="space-y-12">
       <TerminalWindow className="min-h-[60vh] flex flex-col justify-center">
-        <div className="flex flex-col md:flex-row gap-8 items-center">
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8 lg:gap-12 items-center">
           {/* Profile Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -72,9 +72,9 @@ export default function Home() {
             transition={{ delay: 0.5, duration: 0.5 }}
             className="relative group"
           >
-            <div className="w-48 h-48 relative">
+            <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 relative">
               {/* Terminal-style border */}
-              <div className="absolute inset-0 border-2 border-terminal-green rounded-lg group-hover:border-terminal-bright-green transition-colors">
+              <div className="absolute inset-0 border-2 border-terminal-green rounded-lg group-hover:border-terminal-bright-green transition-all duration-300 group-hover:shadow-lg group-hover:shadow-terminal-green/20">
                 <div className="absolute top-0 left-0 px-2 py-1 bg-terminal-black text-terminal-green text-xs -translate-y-1/2">
                   [profile.img]
                 </div>
@@ -120,14 +120,14 @@ export default function Home() {
                 Specialized in multi-tenant architectures, real-time applications, API design, and AI-assisted development.
               </p>
 
-              <div className="flex flex-wrap gap-4 pt-4">
-                <Link href="/projects" className="group relative inline-flex items-center gap-2 px-6 py-3 bg-terminal-dark-gray border border-terminal-green text-terminal-green hover:bg-terminal-green hover:text-terminal-black transition-all duration-300">
-                  <Terminal size={18} />
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 pt-4">
+                <Link href="/projects" className="group relative inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 bg-terminal-dark-gray border border-terminal-green text-terminal-green hover:bg-terminal-green hover:text-terminal-black transition-all duration-300 hover:shadow-lg hover:shadow-terminal-green/30 text-sm sm:text-base">
+                  <Terminal size={18} className="shrink-0" />
                   <span>./view_projects.sh</span>
-                  <ArrowRight size={16} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all" />
+                  <ArrowRight size={16} className="opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all shrink-0" />
                 </Link>
 
-                <Link href="/contact" className="group inline-flex items-center gap-2 px-6 py-3 border border-terminal-dark-gray text-terminal-light-gray hover:border-terminal-white hover:text-terminal-white transition-all duration-300">
+                <Link href="/contact" className="group inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 border border-terminal-dark-gray text-terminal-light-gray hover:border-terminal-white hover:text-terminal-white transition-all duration-300 text-sm sm:text-base">
                   <span>contact --init</span>
                 </Link>
               </div>
@@ -136,7 +136,7 @@ export default function Home() {
         </div>
       </TerminalWindow>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
         {[
           { icon: Code, title: "Clean Code", desc: "Writing maintainable, self-documenting code that scales." },
           { icon: Database, title: "Data Design", desc: "Optimized schemas and efficient query patterns." },
@@ -147,7 +147,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 4 + (i * 0.2) }}
-            className="p-6 border border-terminal-dark-gray bg-terminal-black/50 hover:border-terminal-green/50 transition-colors group"
+            className="p-5 sm:p-6 border border-terminal-dark-gray bg-terminal-black/50 hover:border-terminal-green/50 transition-all duration-300 group hover:shadow-lg hover:shadow-terminal-green/10"
           >
             <item.icon className="w-8 h-8 text-terminal-green mb-4 group-hover:scale-110 transition-transform" />
             <h3 className="text-xl font-bold text-terminal-white mb-2">{item.title}</h3>

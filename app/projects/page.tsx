@@ -130,7 +130,7 @@ export default function Projects() {
     return (
         <div className="max-w-6xl mx-auto">
             <TerminalWindow command="ls -la projects/" title="jhhornn@portfolio:~/projects">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                     {projects.map((project, index) => (
                         <motion.div
                             key={project.id}
@@ -138,12 +138,12 @@ export default function Projects() {
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: index * 0.1 }}
                             onClick={() => setSelectedProject(project)}
-                            className="group cursor-pointer p-4 border border-terminal-dark-gray hover:border-terminal-green bg-terminal-black/50 hover:bg-terminal-dark-gray/30 transition-all duration-300 relative overflow-hidden"
+                            className="group cursor-pointer p-4 sm:p-5 border border-terminal-dark-gray hover:border-terminal-green bg-terminal-black/50 hover:bg-terminal-dark-gray/30 transition-all duration-300 relative overflow-hidden hover:shadow-lg hover:shadow-terminal-green/10"
                         >
-                            <div className="absolute top-0 right-0 p-2 opacity-50 group-hover:opacity-100">
+                            <div className="absolute top-0 right-0 p-2 opacity-50 group-hover:opacity-100 transition-opacity">
                                 <FileCode size={20} className="text-terminal-green" />
                             </div>
-                            <h3 className="text-terminal-white font-bold mb-2 group-hover:text-terminal-green transition-colors">
+                            <h3 className="text-terminal-white font-bold mb-2 sm:mb-3 group-hover:text-terminal-green transition-colors pr-8 text-sm sm:text-base break-words">
                                 {project.name}
                             </h3>
                             <p className="text-terminal-light-gray text-sm mb-4 line-clamp-2">
@@ -179,9 +179,8 @@ export default function Projects() {
                             animate={{ y: 0, opacity: 1 }}
                             exit={{ y: 50, opacity: 0 }}
                             onClick={(e) => e.stopPropagation()}
-                            className="w-full max-w-2xl bg-terminal-black border border-terminal-green shadow-2xl shadow-terminal-green/20 rounded-lg overflow-hidden"
-                        >
-                            <div className="bg-terminal-dark-gray px-4 py-2 flex items-center justify-between border-b border-terminal-gray">
+                            className="w-full max-w-2xl max-h-[90vh] bg-terminal-black border border-terminal-green shadow-2xl shadow-terminal-green/20 rounded-lg overflow-hidden mx-4">
+                            <div className="bg-terminal-dark-gray px-4 py-3 flex items-center justify-between border-b border-terminal-gray sticky top-0 z-10">
                                 <span className="text-terminal-white font-mono">vim {selectedProject.name}</span>
                                 <button
                                     onClick={() => setSelectedProject(null)}
@@ -191,7 +190,7 @@ export default function Projects() {
                                 </button>
                             </div>
 
-                            <div className="p-6 space-y-6 max-h-[80vh] overflow-y-auto">
+                            <div className="p-4 sm:p-6 space-y-4 sm:space-y-6 max-h-[calc(90vh-60px)] overflow-y-auto">
                                 <div>
                                     <div className="text-terminal-blue text-sm mb-1"># Description</div>
                                     <p className="text-terminal-white">{selectedProject.description}</p>

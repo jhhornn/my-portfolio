@@ -23,11 +23,27 @@ export default function Game() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
     const generateFood = useCallback(() => {
-        return {
-            x: Math.floor(Math.random() * (canvasRef.current?.width || 400) / CELL_SIZE),
-            y: Math.floor(Math.random() * (canvasRef.current?.height || 400) / CELL_SIZE),
-        };
-    }, []);
+        const maxX = Math.floor((canvasRef.current?.width || 600) / CELL_SIZE);
+        const maxY = Math.floor((canvasRef.current?.height || 400) / CELL_SIZE);
+
+        let newFood: { x: number; y: number };
+        let attempts = 0;
+        const maxAttempts = 100;
+
+        // Keep generating until we find a position that doesn't overlap with snake
+        do {
+            newFood = {
+                x: Math.floor(Math.random() * maxX),
+                y: Math.floor(Math.random() * maxY),
+            };
+            attempts++;
+        } while (
+            attempts < maxAttempts &&
+            snake.some(segment => segment.x === newFood.x && segment.y === newFood.y)
+        );
+
+        return newFood;
+    }, [snake]);
 
     const resetGame = () => {
         setSnake(INITIAL_SNAKE);
@@ -221,18 +237,19 @@ export default function Game() {
     return (
         <div className="max-w-2xl mx-auto">
             <TerminalWindow command="./snake_game.sh" title="jhhornn@portfolio:~/game">
-                <div className="flex flex-col items-center gap-6">
-                    <div className="flex justify-between w-full px-4 text-terminal-light-gray font-mono">
+                <div className="flex flex-col items-center gap-4 sm:gap-6">
+                    <div className="flex justify-between w-full px-2 sm:px-4 text-terminal-light-gray font-mono text-sm sm:text-base">
                         <div>SCORE: <span className="text-terminal-green">{score}</span></div>
                         <div>HIGH SCORE: <span className="text-terminal-amber">{highScore}</span></div>
                     </div>
 
-                    <div className="relative border-2 border-terminal-dark-gray rounded overflow-hidden">
+                    <div className="relative border-2 border-terminal-dark-gray rounded overflow-hidden hover:border-terminal-green/30 transition-all">
                         <canvas
                             ref={canvasRef}
                             width={600}
                             height={400}
-                            className="block bg-terminal-black"
+                            className="block bg-terminal-black max-w-full h-auto"
+                            style={{ aspectRatio: '3/2' }}
                         />
 
                         {gameOver && (
@@ -260,7 +277,7 @@ export default function Game() {
                     </div>
 
                     {/* Touch Controls for Mobile */}
-                    <div className="grid grid-cols-3 gap-2 md:hidden w-48">
+                    <div className="grid grid-cols-3 gap-2 md:hidden w-44 sm:w-48">
                         <div></div>
                         <button
                             onClick={() => direction.y === 0 && setDirection({ x: 0, y: -1 })}

@@ -73,26 +73,26 @@ export default function Experience() {
     return (
         <div className="max-w-5xl mx-auto">
             <TerminalWindow command="cat experience.log" title="jhhornn@portfolio:~/experience">
-                <div className="space-y-8">
+                <div className="space-y-8 sm:space-y-10 md:space-y-12">
                     {experiences.map((exp, index) => (
                         <motion.div
                             key={exp.id}
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: index * 0.15 }}
-                            className="border-l-2 border-terminal-dark-gray pl-6 hover:border-terminal-green transition-colors group"
+                            className="border-l-2 border-terminal-dark-gray pl-4 sm:pl-6 hover:border-terminal-green transition-all duration-300 group hover:shadow-lg hover:shadow-terminal-green/5"
                         >
                             {/* Header */}
-                            <div className="mb-4">
-                                <div className="flex items-start justify-between flex-wrap gap-2">
-                                    <div>
-                                        <h3 className="text-xl font-bold text-terminal-white group-hover:text-terminal-green transition-colors flex items-center gap-2">
-                                            <Briefcase size={18} className="text-terminal-green" />
-                                            {exp.role}
+                            <div className="mb-4 space-y-3">
+                                <div className="flex items-start justify-between flex-wrap gap-3">
+                                    <div className="flex-1">
+                                        <h3 className="text-lg sm:text-xl font-bold text-terminal-white group-hover:text-terminal-green transition-colors flex items-center gap-2 flex-wrap">
+                                            <Briefcase size={18} className="text-terminal-green shrink-0" />
+                                            <span>{exp.role}</span>
                                         </h3>
-                                        <div className="text-terminal-blue font-bold mt-1">{exp.company}</div>
+                                        <div className="text-terminal-blue font-bold mt-1 text-sm sm:text-base">{exp.company}</div>
                                     </div>
-                                    <span className="px-3 py-1 bg-terminal-dark-gray text-terminal-green text-xs rounded border border-terminal-gray">
+                                    <span className="px-3 py-1 bg-terminal-dark-gray text-terminal-green text-xs rounded border border-terminal-gray shrink-0">
                                         {exp.type}
                                     </span>
                                 </div>
@@ -110,9 +110,9 @@ export default function Experience() {
                             </div>
 
                             {/* Achievements */}
-                            <ul className="space-y-2 mb-4">
+                            <ul className="space-y-2 sm:space-y-3 mb-4">
                                 {exp.achievements.map((achievement, i) => (
-                                    <li key={i} className="text-terminal-light-gray text-sm flex items-start gap-2">
+                                    <li key={i} className="text-terminal-light-gray text-xs sm:text-sm flex items-start gap-2">
                                         <span className="text-terminal-green mt-1 flex-shrink-0">➜</span>
                                         <span>{achievement}</span>
                                     </li>

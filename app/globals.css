@@ -3,7 +3,7 @@
 :root {
   --background: #0a0a0a;
   --foreground: #00ff41;
-  
+
   /* Terminal Colors */
   --terminal-black: #0a0a0a;
   --terminal-dark-gray: #1a1a1a;
@@ -23,7 +23,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  
+
   --color-terminal-black: var(--terminal-black);
   --color-terminal-dark-gray: var(--terminal-dark-gray);
   --color-terminal-gray: var(--terminal-gray);
@@ -37,7 +37,7 @@
   --color-terminal-blue: var(--terminal-blue);
   --color-terminal-purple: var(--terminal-purple);
   --color-terminal-cyan: var(--terminal-cyan);
-  
+
   --font-mono: "JetBrains Mono", "Fira Code", monospace;
 }
 
@@ -46,6 +46,10 @@ body {
   color: var(--foreground);
   font-family: var(--font-mono);
   overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 /* Custom Scrollbar */
@@ -66,6 +70,18 @@ body {
   background: var(--terminal-bright-green);
 }
 
+/* Enhanced Focus States for Accessibility */
+*:focus-visible {
+  outline: 2px solid var(--terminal-green);
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--terminal-green);
+  outline-offset: 4px;
+}
+
 /* Utilities */
 .text-glow {
   text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
@@ -76,13 +92,38 @@ body {
 }
 
 .scanline {
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0),
-    rgba(255, 255, 255, 0) 50%,
-    rgba(0, 0, 0, 0.2) 50%,
-    rgba(0, 0, 0, 0.2)
-  );
+  background: linear-gradient(to bottom,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0) 50%,
+      rgba(0, 0, 0, 0.2) 50%,
+      rgba(0, 0, 0, 0.2));
   background-size: 100% 4px;
   pointer-events: none;
+}
+
+/* Hide scrollbar for mobile nav */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Better touch targets for mobile */
+@media (max-width: 768px) {
+
+  button,
+  a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Smooth transitions */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }

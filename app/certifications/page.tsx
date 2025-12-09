@@ -92,21 +92,21 @@ export default function Certifications() {
     return (
         <div className="max-w-4xl mx-auto">
             <TerminalWindow command="certificates --list --verified" title="jhhornn@portfolio:~/certs">
-                <div className="space-y-6">
+                <div className="space-y-6 sm:space-y-8">
                     {certifications.map((cert, index) => (
                         <motion.div
                             key={cert.id}
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: index * 0.2 }}
-                            className="border-l-2 border-terminal-dark-gray pl-4 hover:border-terminal-green transition-colors group"
+                            className="border-l-2 border-terminal-dark-gray pl-4 sm:pl-6 hover:border-terminal-green transition-all duration-300 group hover:shadow-lg hover:shadow-terminal-green/5"
                         >
-                            <div className="flex items-start justify-between">
-                                <div>
-                                    <h3 className="text-terminal-white font-bold text-lg group-hover:text-terminal-green transition-colors flex items-center gap-2">
-                                        {cert.name}
+                            <div className="flex items-start justify-between gap-3">
+                                <div className="flex-1 min-w-0">
+                                    <h3 className="text-terminal-white font-bold text-base sm:text-lg group-hover:text-terminal-green transition-colors flex items-center gap-2 flex-wrap">
+                                        <span className="break-words">{cert.name}</span>
                                         {cert.verified && (
-                                            <CheckCircle size={16} className="text-terminal-blue" />
+                                            <CheckCircle size={20} className="text-terminal-blue shrink-0" />
                                         )}
                                     </h3>
                                     <div className="text-terminal-light-gray text-sm mt-1">
@@ -129,9 +129,12 @@ export default function Certifications() {
 
                                 <a
                                     href={cert.link}
-                                    className="opacity-0 group-hover:opacity-100 transition-opacity px-3 py-1 border border-terminal-green text-terminal-green text-xs rounded hover:bg-terminal-green hover:text-terminal-black"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="opacity-0 group-hover:opacity-100 transition-opacity px-3 py-2 sm:py-1 border border-terminal-green text-terminal-green text-xs sm:text-sm rounded hover:bg-terminal-green hover:text-terminal-black shrink-0"
                                 >
-                                    [View Certificate]
+                                    <span className="hidden sm:inline">[View Certificate]</span>
+                                    <span className="sm:hidden">View</span>
                                 </a>
                             </div>
                         </motion.div>
