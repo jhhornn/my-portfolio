@@ -7,6 +7,16 @@ import { Award, CheckCircle, Calendar } from "lucide-react";
 
 const certifications = [
     {
+        id: "lang-chain-ess",
+        name: "Quickstart: LangChain Essentials - Python",
+        issuer: "LangChain Academy",
+        date: "2025-09-12",
+        expires: null,
+        credentialId: "gwvvl1plqy",
+        link: "https://academy.langchain.com/certificates/gwvvl1plqy",
+        verified: true,
+    },
+    {
         id: "api-test",
         name: "API Test Automation",
         issuer: "Postman",
