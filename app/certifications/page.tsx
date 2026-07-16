@@ -12,8 +12,8 @@ const certifications = [
         issuer: "Cisco Networking Academy program",
         date: "2026-07-15",
         expires: null,
-        credentialId: "44abf7fd-9d19-474b-a005-b98df13c977c",
-        link: "https://www.netacad.com/certificates/?issuanceId=44abf7fd-9d19-474b-a005-b98df13c977c",
+        credentialId: "210a0a7a-e6f0-42d1-9ac9-04538fdf1461",
+        link: "https://www.credly.com/badges/210a0a7a-e6f0-42d1-9ac9-04538fdf1461",
         verified: true,
     },
     {
