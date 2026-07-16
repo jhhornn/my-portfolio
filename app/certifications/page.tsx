@@ -7,6 +7,16 @@ import { Award, CheckCircle, Calendar } from "lucide-react";
 
 const certifications = [
     {
+        id: "intro-cyber-cisco",
+        name: "Introduction to Cybersecurity",
+        issuer: "Cisco Networking Academy program",
+        date: "2026-07-15",
+        expires: null,
+        credentialId: "44abf7fd-9d19-474b-a005-b98df13c977c",
+        link: "https://www.netacad.com/certificates/?issuanceId=44abf7fd-9d19-474b-a005-b98df13c977c",
+        verified: true,
+    },
+    {
         id: "lang-chain-ess",
         name: "Quickstart: LangChain Essentials - Python",
         issuer: "LangChain Academy",
